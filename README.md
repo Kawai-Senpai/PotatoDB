@@ -1,5 +1,7 @@
 # PotatoDB: Lightweight JSON-based Database for Python
 
+![PotatoDB Cover](https://github.com/Kawai-Senpai/PotatoDB/blob/81f8b44b0718fcd396a296933eb72bc1e35e3053/Assets/PotatoDB%20Thumbnail.png)
+
 **PotatoDB** is a lightweight, JSON-based database solution designed for simplicity and ease of use. It allows you to create, insert, query, update, and delete records in a NoSQL fashion, using Python's built-in JSON module to store data persistently on disk developed by [*Ranit Bhowmick*](https://www.linkedin.com/in/ranitbhowmick/) & [*Sayanti Chatterjee*](https://www.linkedin.com/in/sayantichatterjee/). Whether you need a quick and easy database for small projects, prototypes, or educational purposes, PotatoDB offers a flexible solution without the overhead of traditional databases.
 
 ## Features

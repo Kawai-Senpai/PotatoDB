@@ -1,7 +1,5 @@
 # PotatoDB: Lightweight JSON-based Database for Python
 
-![PotatoDB Cover](https://github.com/Kawai-Senpai/PotatoDB/blob/81f8b44b0718fcd396a296933eb72bc1e35e3053/Assets/PotatoDB%20Thumbnail.png)
-
 **PotatoDB** is a lightweight, JSON-based database solution designed for simplicity and ease of use. It allows you to create, insert, query, update, and delete records in a NoSQL fashion, using Python's built-in JSON module to store data persistently on disk developed by [*Ranit Bhowmick*](https://www.linkedin.com/in/ranitbhowmick/) & [*Sayanti Chatterjee*](https://www.linkedin.com/in/sayantichatterjee/). Whether you need a quick and easy database for small projects, prototypes, or educational purposes, PotatoDB offers a flexible solution without the overhead of traditional databases.
 
 ## Features
@@ -24,7 +22,7 @@
     - [Updating Records](#updating-records)
     - [Deleting Records](#deleting-records)
 3. [Detailed Documentation](#detailed-documentation)
-    - [Class: `LazyDB`](#class-lazydb)
+    - [Class: `PotatoDB`](#class-PotatoDB)
     - [Methods](#methods)
         - [`__init__`](#init)
         - [`create_table`](#create_table)
@@ -55,13 +53,13 @@ Alternatively, you can copy the `potatodb.py` file directly into your project di
 
 ### Creating a Database Instance
 
-To create a new instance of PotatoDB, import the `LazyDB` class and specify the folder where the data should be stored. If the folder does not exist, it will be created automatically.
+To create a new instance of PotatoDB, import the `PotatoDB` class and specify the folder where the data should be stored. If the folder does not exist, it will be created automatically.
 
 ```python
-from potatodb.db import LazyDB
+from potatodb.db import PotatoDB
 
-# Create a new LazyDB instance
-db = LazyDB("example_data")
+# Create a new PotatoDB instance
+db = PotatoDB("example_data")
 ```
 
 ### Creating a Table
@@ -115,19 +113,19 @@ db.delete("users", lambda record: record["name"] == "Bob")
 
 ## Detailed Documentation
 
-### Class: `LazyDB`
+### Class: `PotatoDB`
 
-The `LazyDB` class is the core of the PotatoDB library. It provides methods for creating tables, inserting data, querying, updating, and deleting records, as well as saving and loading data to and from JSON files.
+The `PotatoDB` class is the core of the PotatoDB library. It provides methods for creating tables, inserting data, querying, updating, and deleting records, as well as saving and loading data to and from JSON files.
 
 #### `__init__`
 
 ```python
-def __init__(self, folder="LazyDB"):
+def __init__(self, folder="PotatoDB"):
 ```
 
 - **Description:** Initializes the database instance, setting the folder for storage and loading existing data from JSON files.
 - **Parameters:**
-  - `folder` (str): The folder where the database files will be stored. Defaults to `"LazyDB"`.
+  - `folder` (str): The folder where the database files will be stored. Defaults to `"PotatoDB"`.
 
 #### `create_table`
 
@@ -223,10 +221,10 @@ def load(self, table_name=None):
 Here's a complete example of how to use PotatoDB:
 
 ```python
-from potatodb.db import LazyDB
+from potatodb.db import PotatoDB
 
-# Create a new LazyDB instance
-db = LazyDB("example_data")
+# Create a new PotatoDB instance
+db = PotatoDB("example_data")
 
 # Create a new table called "users"
 db.create_table("users")

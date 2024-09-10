@@ -1,7 +1,7 @@
-from potatodb.db import LazyDB
+from potatodb.db import PotatoDB
 
 # Create a new LazyDB instance
-db = LazyDB("example_data")
+db = PotatoDB("example_data")
 
 # Create a new table called "users"
 db.create_table("users")

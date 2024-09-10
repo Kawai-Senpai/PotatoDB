@@ -1,7 +1,7 @@
 import os
 import json
 
-class LazyDB:
+class PotatoDB:
 
     def __init__(self, folder="LazyDB"):
         self.tables = {}

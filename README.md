@@ -78,7 +78,8 @@ Records can be inserted into a table using the `insert` method. The record shoul
 
 ```python
 db.insert("users", {"name": "Alice", "age": 30})
-db.insert("users", {"name": "Bob", "age": 25})
+db.insert("users", {"name": "Bob", "age": 25}) 
+# The database will automatically save the data to disk after each operation
 ```
 
 ### Querying Records
@@ -204,7 +205,7 @@ def set_folder(self, folder_name):
 def save(self, table_name=None):
 ```
 
-- **Description:** Saves the specified table to a JSON file in the set folder.
+- **Description:** Saves the specified table to a JSON file in the set folder. (This method is called automatically after each operation.)
 - **Parameters:**
   - `table_name` (str): The name of the table to save. If `None`, all tables are saved.
 
@@ -214,7 +215,7 @@ def save(self, table_name=None):
 def load(self, table_name=None):
 ```
 
-- **Description:** Loads a table from a JSON file in the set folder.
+- **Description:** Loads a table from a JSON file in the set folder. (This method is called automatically when the database is initialized.)
 - **Parameters:**
   - `table_name` (str): The name of the table to load. If `None`, all tables are loaded.
 
@@ -225,7 +226,7 @@ Here's a complete example of how to use PotatoDB:
 ```python
 from potatodb.db import PotatoDB
 
-# Create a new PotatoDB instance
+# Create a new LazyDB instance
 db = PotatoDB("example_data")
 
 # Create a new table called "users"
@@ -249,17 +250,13 @@ users_above_30 = db.query("users", lambda record: record["age"] > 30)
 print("Users above 30:", users_above_30)
 
 # Delete all users named "Bob" from the "users" table
-db.delete("users", lambda record
+db.delete("users", lambda record: record["name"] == "Bob")
 
-: record["name"] == "Bob")
+# Query all records from the "users" table after deletion
+remaining_users = db.query("users", lambda record: True)
 
-# Save the current state of the database
-db.save()
-
-# Load the data from the disk
-db.load()
-
-print("Database loaded successfully!")
+# Print the remaining records
+print("Remaining users:", remaining_users)
 ```
 
 ## Advanced Usage
